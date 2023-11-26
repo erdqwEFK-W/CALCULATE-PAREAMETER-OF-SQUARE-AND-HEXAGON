@@ -1,0 +1,107 @@
+#include <iostream>
+#include <cmath>
+
+class Hexagon {
+private:
+    double side;
+
+public:
+    // Function to set the side length
+    void setSide(double s) {
+        side = s;
+    }
+
+    // Member functions for Hexagon
+    double calcArea() {
+        return 1.5 * 1.732 * side * side;
+    }
+
+    double calcPeri() {
+        return 6 * side;
+    }
+
+    double calcAngleSum() {
+        return 6 * 120;
+    }
+
+    void display() {
+        std::cout << "Hexagon Information:" << std::endl;
+        std::cout << "Area: " << calcArea() << std::endl;
+        std::cout << "Perimeter: " << calcPeri() << std::endl;
+        std::cout << "Sum of Angles: " << calcAngleSum() << std::endl;
+
+    }
+};
+
+class Square {
+private:
+    double length;
+
+public:
+    // Function to set the side length
+    void setLength(double l) {
+        length = l;
+    }
+
+    // Member functions for Square
+    double calcAreaSquare() {
+        return length * length;
+    }
+
+    double calcPeriSquare() {
+        return 4 * length;
+    }
+
+    void display() {
+        std::cout << "Square Information:" << std::endl;
+        std::cout << "Area: " << calcAreaSquare() << std::endl;
+        std::cout << "Perimeter: " << calcPeriSquare() << std::endl;
+
+    }
+};
+
+int main() {
+
+    // Create Hexagon and Square objects
+    Hexagon hexagon;
+    Square square;
+
+    // Get input from the user for Hexagon
+    double hexagonSide;
+    std::cout << "Enter the side length for Hexagon: ";
+    std::cin >> hexagonSide;
+    hexagon.setSide(hexagonSide);
+
+    // Get input from the user for Square
+    double squareLength;
+    std::cout << "Enter the side length for Square: ";
+    std::cin >> squareLength;
+    square.setLength(squareLength);
+
+    // Repeating menu
+    char choice;
+    do {
+        std::cout<<"**********************************************************************"<<std::endl;
+        std::cout << "Menu:" << std::endl;
+        std::cout << "1. To calculate area ,perimeter,and sum of angle of Hexagon" << std::endl;
+        std::cout << "2.To calculate area ,perimeter,of square" << std::endl;
+        std::cout << "Any other key to exit" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+            case '1':
+                hexagon.display();
+                break;
+            case '2':
+                square.display();
+                break;
+            default:
+                std::cout << "Exiting the program." << std::endl;
+                break;
+        }
+
+    } while (choice == '1' || choice == '2');
+
+    return 0;
+}
